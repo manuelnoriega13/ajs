@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="contador">
+    <div ng-controller="MainController">
+        <button ng-click="sumarUno()">sumar</button>
+        <button ng-click="restarUno()">restar</button>
+        <p>contador: {{contador}}</p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+    <script>
+        angular
+        .module('contador', []) //defino modulo
+        .controller('MainController', function ($scope) { //defino controller 
+            
+            //creo atributo
+            $scope.contador = 0;
+
+            //$scope creo metodos
+            $scope.sumarUno = function () {
+                $scope.contador += 1;
+            }
+
+            //$scope creo metodos
+            $scope.restarUno = function () {
+                if ($scope.contador <= 0) {
+                    $scope.contador = 0;
+                    alert("no")
+                } else {
+                    $scope.contador -= 1;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

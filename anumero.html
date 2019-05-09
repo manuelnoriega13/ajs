@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="aNumero">
+    <div ng-controller="ANumeroController">
+        <h3>adivina el numero entre 1 y 100</h3>
+        <p>intento: {{attempts}} </p>
+
+        <input type=number ng-model="numberUser">
+        <button ng-click="check()">verificar</button>
+        <button ng-click="initz()">reset</button>
+        <p>
+            <p ng-show="diff < 0">muy alto</p>
+            <p ng-show="diff > 0">muy bajo</p>
+            <p ng-show="diff == 0">ok</p>
+        </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script>
+        angular
+            .module('aNumero', [])
+            .controller('ANumeroController', function ($scope) {
+                $scope.initz = function () {
+                    $scope.attempts = 0;
+                    $scope.numberUser = null;
+                    $scope.diff = null;
+                    $scope.secretNumber = Math.floor((10 * Math.random()) + 1);
+                    console.log($scope.secretNumber);
+                }
+
+                $scope.check = function () {
+                    $scope.attempts += 1;
+                    $scope.diff = $scope.secretNumber - $scope.numberUser;
+                }
+
+                $scope.initz();
+            });
+    </script>
+
+
+</body>
+
+</html>

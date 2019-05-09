@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .error {
+            color: red;
+            background-color: yellow;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        div {
+            padding: 20 0 20 0;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app>
+
+    <!--inicia variables -->
+    <div>ng-init</div>
+    <span ng-init="persona = {nombre:'manuel',apellido:'noriega'}; x=10">
+        {{persona.nombre + ", " + persona.apellido}}
+    </span>
+
+    <div>ng-if</div>
+    <span ng-if="x>5">x mayor a 5</span>
+    <span ng-if="x<5">x menor a 5</span>
+    <span ng-if="x==5">x igual a 5</span>
+
+    <div>ng-click</div>
+    <input type="button" value="incrementar" ng-click="contador = contador+ 1" ng-contador=0>
+    {{contador}}
+
+    <div>ng-mouseOver</div>
+    <input type="button" value="incrementar" ng-mouseOver="contador2  = contador2 + 1" ng-init=contador2=0">
+    {{contador2}}
+
+    <div>ng-dblClock</div>
+    <input type="button" value="incrementar" ng-dblclick="contador3 = contador3 + 1" ng-init="contador=3">
+    {{contador3}}
+
+    <div>ng-keypress</div>
+    <input type="text" ng-keypress="contador4 = contador4 + 1" ng-init="contador4">
+    {{contador4}}
+
+    <div>ng-show ng-hide</div>
+    <input type="checkbox" ng-model="showHide">
+    <br>
+    <div>
+        <span ng-show="showHide">
+            show seleccionado
+        </span>
+    </div>
+    <div>
+        <span ng-hide="showHide">
+            show no seleccionado
+        </span>
+    </div>
+
+    <div ng-init="personas=[{nombre:'a',pais:'colombia'},{nombre:'b',pais:'venezuela'},{nombre:'c',pais:'argentina'}]">
+        ng-repeat</div>
+    <span ng-repeat="persona in personas">
+        {{persona.nombre + " es de " + persona.pais}}
+        <br>
+    </span>
+
+
+    <div>ng-class</div>
+    <input type="text" ng-model="estilo1">
+    <p ng-class="estilo1">ng-class test 1</p>
+
+    <input type="text" ng-model="estilo2">
+    <input type="text" ng-model="estilo3">
+    <p ng-class="[estilo2, estilo3]">ng-class test 2</p>
+
+    <input type="checkbox" ng-model="usarError">error
+    <input type="checkbox" ng-model="userBold">bold
+
+    <p ng-class="{ 'error':usarError, 'bold':userBold}">ng-class test 3</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+</body>
+
+</html>
