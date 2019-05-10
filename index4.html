@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #externalController {
+            background-color: gray;
+            padding: 10px
+        }
+
+        #internalController {
+            background-color: red;
+            padding: 10px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="myApp">
+    <p><strong>Podemos ver:</strong> {{rootProperty}}</p>
+    <div id="externalController" ng-controller="externalController">
+        <p><strong>podemos ver: </strong>{{rootProperty}} y {{externalProperty}}</p>
+        <div id="internalController" ng-controller="internalController">
+            <p>
+                <strong>Podemos ver: </strong>
+                {{rootProperty}}
+                {{externalProperty}}
+                {{internalProperty}}
+
+                {{message}}
+            </p>
+        </div>
+    </div>
+    <script src="js/angular.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
