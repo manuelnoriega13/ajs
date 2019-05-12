@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-messages.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body ng-app="validacion" ng-controller="MainController">
+    <form name="formulario">
+        <div>
+            <label>Nombre</label>
+            <input type="text" name="nombre" ng-modelo="nombre.model" ng-minlength="4" ng-maxlength="10" required>
+        </div>
+        <div ng-message="formulario.nombre.$error" ng-if="formulario.nombre.$touched">
+            <div ng-message-include="mensajes.html"></div>
+        </div>
+        <div>
+            <label>Apellido</label>
+            <input type="text" name="apellido" ng-modelo="apellido" ng-minlength="4" ng-maxlength="10" required>
+        </div>
+        <div ng-message="formulario.apellido.$error" ng-if="formulario.nombre.$touched">
+            <div ng-message-include="mensajes.html"></div>
+        </div>
+
+        <div>
+            <label for="">correo electronico</label>
+            <input type="email" name="" ng-modelo="email" ng-minlength="5" ng-maxlength="20" required>
+        </div>
+        <div ng-message-multiple ng-message="formulario.email.$error" ng-if="formulario.nombre.$touched">
+            <div ng-message-include="mensajes.html"></div>
+        </div>
+        <div>
+            <label for="">Telefono</label>
+            <input type="number" name="telefono" ng-modelo="telefono" ng-minlength="10" ng-maxlength="10" ng-pattern="" required>
+        </div>
+        <div ng-message="formulario.telefono.$error" ng-if="formulario.nombre.$touched">
+            <div ng-message-include="mensajes.html"></div>
+        </div>
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+</body>
+
+</html>

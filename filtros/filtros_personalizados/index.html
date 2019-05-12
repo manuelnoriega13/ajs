@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="filtros">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-controller="filtrosController">
+        <p> {{'cadena' | uppercase | limitTo:4}}</p>
+        <p>{{'cadena' | limitTo:2}}</p>
+        <p>{{250 | currency}}</p>
+        <p>{{hoy | date:'fullDate'}}</p>
+        <p>{{hoy | date:'shortDate'}}</p>
+        <p>{{hoy | date:'yyyy'}}</p>
+        <!-- ver doc angujarjs filters date -->
+        <p>{{ dias | filter:'o'}}</p>
+        <p>{{ "frase de prueba" | limitTo: 3 | suspensivos }}</p>
+        <p>{{ "frase de prueba" | limitTo: 3 | primeraMayusculas | suspensivos }}</p>
+    
+    </div>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
